@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import FeedbackForm from '@/components/FeedbackForm';
+import AnimeAvatar from '@/components/AnimeAvatar';
 import { 
   Users, 
   TrendingUp, 
@@ -17,8 +18,11 @@ import {
   Heart,
   MessageCircle,
   FileText,
-  BarChart3
+  BarChart3,
+  Stethoscope,
+  Sparkles
 } from 'lucide-react';
+import animeCounselor from '@/assets/anime-counselor.jpg';
 
 interface PatientData {
   id: string;
@@ -210,23 +214,40 @@ export default function CounselorDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center gap-2">
-              <Brain className="w-8 h-8 text-primary" />
-              <h1 className="text-2xl font-bold text-gray-900">MindWell - Counselor Portal</h1>
+    <div className="min-h-screen counselor-page">
+      {/* Professional Anime Header */}
+      <header className="relative overflow-hidden gradient-counselor">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-4">
+              <div className="floating-animation">
+                <img src={animeCounselor} alt="Counselor Avatar" className="w-16 h-16 rounded-full shadow-anime" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold text-white">
+                  <Stethoscope className="inline w-8 h-8 mr-2" />
+                  MindWell - Counselor Portal ✨
+                </h1>
+                <p className="text-white/90">Professional mental health support dashboard</p>
+              </div>
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground">
-                Dr. {profile?.full_name || user?.email}
-              </span>
-              <Button onClick={signOut} variant="outline" size="sm">
-                <LogOut className="w-4 h-4 mr-2" />
-                Sign Out
-              </Button>
+              <AnimeAvatar 
+                name={profile?.full_name || user?.email || 'Dr. Counselor'}
+                size="lg"
+                showMoodBadge={false}
+                isOnline={true}
+                imageUrl={animeCounselor}
+              />
+              <div className="text-right text-white">
+                <p className="font-semibold">
+                  Dr. {profile?.full_name || user?.email}
+                </p>
+                <Button onClick={signOut} variant="outline" size="sm" className="mt-2 border-white/30 text-white hover:bg-white/20">
+                  <LogOut className="w-4 h-4 mr-2" />
+                  Sign Out
+                </Button>
+              </div>
             </div>
           </div>
         </div>

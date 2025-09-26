@@ -2,53 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Professional + Fun Design System */
+/* Anime-Inspired Vibrant Design System */
 
 @layer base {
   :root {
-    /* Professional colors for questionnaire */
-    --professional-bg: 210 20% 98%;
-    --professional-text: 210 15% 20%;
-    --professional-primary: 210 100% 45%;
-    --professional-border: 210 15% 85%;
+    /* Professional colors for questionnaire - anime-inspired pastels */
+    --professional-bg: 320 50% 98%;
+    --professional-text: 260 15% 25%;
+    --professional-primary: 280 90% 60%;
+    --professional-border: 320 30% 90%;
 
-    /* Professional yet fun colors for main app */
-    --background: 210 20% 98%;
-    --foreground: 210 15% 20%;
+    /* Vibrant anime-inspired colors */
+    --background: 320 50% 98%;
+    --foreground: 260 15% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 15% 20%;
+    --card-foreground: 260 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 20%;
+    --popover-foreground: 260 15% 25%;
 
-    --primary: 270 95% 65%; /* Friendly purple */
+    /* Anime color palette */
+    --primary: 280 90% 60%; /* Electric purple */
     --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 80% 80%;
 
-    --secondary: 195 100% 75%; /* Calming blue */
-    --secondary-foreground: 210 15% 20%;
+    --secondary: 200 85% 65%; /* Sky blue */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 200 70% 85%;
 
-    --muted: 210 20% 95%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 320 20% 96%;
+    --muted-foreground: 260 10% 50%;
 
-    --accent: 340 85% 70%; /* Warm pink accent */
+    --accent: 350 85% 75%; /* Coral pink */
     --accent-foreground: 0 0% 100%;
+    --accent-glow: 350 70% 85%;
 
-    --destructive: 0 85% 60%;
+    --destructive: 0 85% 65%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 85%;
-    --input: 210 15% 85%;
-    --ring: 270 95% 65%;
+    --border: 320 25% 88%;
+    --input: 320 25% 88%;
+    --ring: 280 90% 60%;
 
-    --success: 140 85% 50%;
-    --warning: 45 95% 60%;
-    --info: 210 100% 60%;
+    --success: 140 70% 60%;
+    --warning: 45 90% 65%;
+    --info: 210 85% 65%;
 
-    /* Fun gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(270, 95%, 65%), hsl(195, 100%, 75%));
-    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(210, 20%, 99%));
-    --gradient-hero: linear-gradient(135deg, hsl(270, 95%, 65%), hsl(340, 85%, 70%));
+    /* Anime character colors */
+    --kawaii-pink: 340 80% 75%;
+    --kawaii-blue: 210 80% 70%;
+    --kawaii-green: 140 60% 65%;
+    --kawaii-yellow: 50 90% 70%;
+    --kawaii-purple: 270 70% 75%;
+
+    /* Vibrant gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(280, 90%, 60%), hsl(200, 85%, 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(350, 85%, 75%), hsl(280, 90%, 60%));
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(320, 30%, 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(280, 90%, 60%), hsl(350, 85%, 75%));
+    --gradient-rainbow: linear-gradient(90deg, hsl(0, 80%, 70%), hsl(60, 80%, 70%), hsl(120, 80%, 70%), hsl(180, 80%, 70%), hsl(240, 80%, 70%), hsl(300, 80%, 70%));
+    --gradient-anime-bg: linear-gradient(45deg, hsl(320, 50%, 98%), hsl(280, 30%, 96%), hsl(200, 40%, 97%));
+    
+    /* Counselor theme - professional anime */
+    --counselor-primary: 260 70% 55%;
+    --counselor-secondary: 190 60% 60%;
+    --counselor-accent: 320 60% 65%;
+    --counselor-bg: 240 20% 98%;
+    --gradient-counselor: linear-gradient(135deg, hsl(260, 70%, 55%), hsl(190, 60%, 60%));
 
     /* Consistent radius values */
     --radius: 0.75rem;
@@ -119,10 +140,19 @@
   }
 }
 
-/* Professional + Fun custom styles */
+/* Anime-Inspired Custom Styles */
 @layer components {
   .professional-page {
     @apply bg-[hsl(var(--professional-bg))] text-[hsl(var(--professional-text))];
+  }
+  
+  .anime-page {
+    background: var(--gradient-anime-bg);
+    @apply text-[hsl(var(--foreground))];
+  }
+  
+  .counselor-page {
+    @apply bg-[hsl(var(--counselor-bg))] text-[hsl(var(--foreground))];
   }
   
   .gradient-hero {
@@ -131,26 +161,93 @@
   
   .gradient-card {
     background: var(--gradient-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(320, 30%, 90%, 0.3);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-rainbow {
+    background: var(--gradient-rainbow);
+  }
+  
+  .gradient-counselor {
+    background: var(--gradient-counselor);
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:scale-105;
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-105 hover:-translate-y-1;
+  }
+  
+  .card-anime {
+    @apply transition-all duration-300 hover:shadow-colorful hover:scale-102 hover:-translate-y-0.5 backdrop-blur-sm;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    border: 1px solid hsla(280, 90%, 60%, 0.2);
   }
   
   .mood-button {
-    @apply transition-all duration-200 hover:scale-105 active:scale-95;
+    @apply transition-all duration-200 hover:scale-110 active:scale-95 hover:rotate-3;
+  }
+  
+  .kawaii-button {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95;
+    background: linear-gradient(45deg, hsl(var(--kawaii-pink)), hsl(var(--kawaii-purple)));
+    border-radius: 25px;
   }
   
   .floating-animation {
     animation: float 6s ease-in-out infinite;
   }
   
+  .bounce-gentle {
+    animation: bounceGentle 2s ease-in-out infinite;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
   .fade-in {
     animation: fadeIn 0.6s ease-out;
   }
   
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
   .success-pulse {
     animation: successPulse 2s ease-in-out infinite;
+  }
+  
+  .rainbow-text {
+    background: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowShift 3s ease-in-out infinite;
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 20px hsla(280, 90%, 60%, 0.4);
+  }
+  
+  .glow-secondary {
+    box-shadow: 0 0 20px hsla(200, 85%, 65%, 0.4);
+  }
+  
+  .video-container {
+    @apply relative overflow-hidden rounded-lg shadow-lg;
+    aspect-ratio: 16/9;
+  }
+  
+  .video-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4;
   }
 }
 
@@ -162,18 +259,51 @@
     background-clip: text;
   }
   
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
   .shadow-soft {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   
   .shadow-colorful {
-    box-shadow: 0 10px 25px -5px hsla(270, 95%, 65%, 0.2);
+    box-shadow: 0 15px 35px -5px hsla(280, 90%, 60%, 0.3), 0 5px 15px -5px hsla(350, 85%, 75%, 0.2);
+  }
+  
+  .shadow-kawaii {
+    box-shadow: 0 8px 25px -5px hsla(340, 80%, 75%, 0.4);
+  }
+  
+  .shadow-anime {
+    box-shadow: 0 10px 30px -10px hsla(280, 90%, 60%, 0.4), 0 0 0 1px hsla(280, 90%, 60%, 0.1);
+  }
+  
+  .bg-anime-gradient {
+    background: var(--gradient-anime-bg);
+  }
+  
+  .scale-102 {
+    transform: scale(1.02);
   }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -181,7 +311,40 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
 @keyframes successPulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+@keyframes rainbowShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(180deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
